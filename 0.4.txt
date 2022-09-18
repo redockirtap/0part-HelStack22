@@ -1,0 +1,39 @@
+user (browser)-->page (server): Submit event fires 5 HTTP requests
+user (browser)-->page (server): First request is HTTP POST to the server address 'new_note'
+
+note over page (server):
+Server responds with HTTP Status
+Code 302 - URL Redirect
+end note
+
+page (server)-->user (browser): Server responds with HTTP Status Code 302 - URL Redirect
+
+note over page (server):
+Server asks a browser to make 
+a new HTTP GET request to
+Header's location '/notes'
+end note
+
+
+
+note over user (browser):
+ Browser reloads the page with
+ 3 remaining requests -
+ main.css, main.js, data.json
+end note
+
+
+user (browser)-->page (server): Submitted data is sent to the server as the body of POST request
+
+note over page (server):
+Server accesses the data, 
+creates a new note object
+end note
+
+page (server)-->user (browser): Server pushes the object to 'notes' array
+
+note over page (server):
+Note object contains two keys:
+content and date, but only first
+is shown on the webpage
+end note
